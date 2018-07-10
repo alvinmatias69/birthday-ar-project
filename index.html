@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Happy Birthday Cutie Pie!</title>
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"> </script>
+</head>
+
+<body style="margin: 0px; overflow: hidden;">
+    <a-scene embedded arjs="debugUIEnabled: false;">
+    <!-- <a-scene> -->
+        <a-assets>
+            <a-asset-item id="cake" src="./assets/cake.gltf"></a-asset-item>
+            <a-asset-item id="fontType" src="./assets/harley.json"></a-asset-item>
+        </a-assets>
+
+        <a-sky color="#ffb6c1"></a-sky>
+        <a-marker preset="hiro">
+            <a-entity
+                gltf-model="#cake"
+                scale="0.05 0.05 0.05"
+                position="0 1 -2"
+                particle-system="preset: star; size: 0.05"
+            >
+                <a-animation
+                    attribute="rotation"
+                    dur="10000"
+                    repeat="indefinite"
+                    to="0 360 0"
+                ></a-animation>
+                <a-entity
+                    text-geometry="value: Happy Birthday Cutie Pie; font: #fontType;"
+                    material="color: #663399;"
+                    position="-11 11 9"
+                    scale="4 4 4"
+                >
+                    <a-animation
+                        attribute="position"
+                        to="-11 14 9"
+                        repeat="indefinite"
+                        direction="alternate"
+                    >
+                    </a-animation>
+                </a-entity>
+            </a-entity>
+        </a-marker>
+    </a-scene>
+</body>
+
+</html>
